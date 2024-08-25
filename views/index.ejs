@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attack on Titan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="/audio/aot_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element. 
+        </audio>
+    <h1>Attack on Titan posts</h1>
+    <% for( let post of posts){ %>
+        <div class="posts" id="quote">
+            <h3 class="author"><%=post.author%></h3>
+            <h4 class="content"><%=post.content%></h4>
+            <a href="/posts/<%=post.id%>">See more</a>
+            <a href="/posts/<%=post.id%>/edit">Edit</a>
+            <br><br>
+            <form  method="POST" action="/posts/<%=post.id %>?_method=DELETE">
+                <button>Delete</button>
+            </form>
+            
+        </div>
+    <%}%>
+   <br>
+    <a href="/posts/new" class="button"> Create Post</a>
+</body>
+</html>
